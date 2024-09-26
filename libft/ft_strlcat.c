@@ -1,25 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 16:27:04 by healeksa          #+#    #+#             */
-/*   Updated: 2024/09/24 16:12:29 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/27 15:13:01 by healeksa          #+#    #+#             */
+/*   Updated: 2024/01/27 16:51:46 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include "libft.h"
-# include <readline/history.h>
-# include <readline/readline.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+size_t	ft_strlcat(char *dst, const char *src, size_t destsize)
+{
+	size_t	i;
+	size_t	j;
 
-# define SH_PROMPT "minishell>$ "
-
-#endif
+	if (!destsize && !dst)
+		return (0);
+	if (ft_strlen(dst) >= destsize)
+		return (destsize + ft_strlen(src));
+	i = ft_strlen(dst);
+	j = 0;
+	while (src[j] != '\0' && i < destsize - 1)
+	{
+		dst[i] = src[j];
+		i++;
+		j++;
+	}
+	dst[i] = '\0';
+	return (ft_strlen(dst) + ft_strlen(src + j));
+}

@@ -1,25 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 16:27:04 by healeksa          #+#    #+#             */
-/*   Updated: 2024/09/24 16:12:29 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/26 16:58:37 by healeksa          #+#    #+#             */
+/*   Updated: 2024/01/26 17:05:13 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include "libft.h"
-# include <readline/history.h>
-# include <readline/readline.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+void	*ft_memchr(const void *str, int c, size_t n)
+{
+	size_t			i;
+	unsigned char	*s;
 
-# define SH_PROMPT "minishell>$ "
-
-#endif
+	s = (unsigned char *)str;
+	i = 0;
+	while (i < n)
+	{
+		if (s[i] == (unsigned char)c)
+			return ((void *)(s + i));
+		i++;
+	}
+	return (0);
+}

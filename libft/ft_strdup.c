@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 16:27:04 by healeksa          #+#    #+#             */
-/*   Updated: 2024/09/24 16:12:29 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/26 17:25:46 by healeksa          #+#    #+#             */
+/*   Updated: 2024/01/29 19:04:26 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include "libft.h"
-# include <readline/history.h>
-# include <readline/readline.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+char	*ft_strdup(const char *src)
+{
+	int		i;
+	char	*addr;
 
-# define SH_PROMPT "minishell>$ "
-
-#endif
+	i = ft_strlen(src);
+	addr = (char *)malloc(sizeof(char) * (i + 1));
+	if (!addr)
+		return (0);
+	ft_strlcpy(addr, src, i + 1);
+	return (addr);
+}

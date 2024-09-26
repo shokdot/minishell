@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   minishell.h                                        :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/22 16:27:04 by healeksa          #+#    #+#             */
-/*   Updated: 2024/09/24 16:12:29 by healeksa         ###   ########.fr       */
+/*   Created: 2024/01/26 16:29:39 by healeksa          #+#    #+#             */
+/*   Updated: 2024/05/29 21:45:47 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MINISHELL_H
-# define MINISHELL_H
+#include "libft.h"
 
-# include "libft.h"
-# include <readline/history.h>
-# include <readline/readline.h>
-# include <stdio.h>
-# include <stdlib.h>
-# include <unistd.h>
+char	*ft_strchr(const char *str, int c)
+{
+	int	i;
 
-# define SH_PROMPT "minishell>$ "
-
-#endif
+	if (!str)
+		return (NULL);
+	i = 0;
+	while (str[i] != '\0')
+	{
+		if (str[i] == (unsigned char)c)
+			return ((char *)(str + i));
+		i++;
+	}
+	if (str[i] == (unsigned char)c)
+		return ((char *)(str + i));
+	return (0);
+}
