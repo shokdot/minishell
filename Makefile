@@ -2,7 +2,7 @@ NAME = minishell
 
 SRC_DIR = srcs
 OBJ_DIR = build
-SUBDIRS =
+SUBDIRS = tokenization
 
 LIBFT = ./libft
 
