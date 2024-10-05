@@ -2,7 +2,7 @@ NAME = minishell
 
 SRC_DIR = srcs
 OBJ_DIR = build
-SUBDIRS = init tokenization
+SUBDIRS = builtin signal
 
 LIBFT = ./libft
 
@@ -13,7 +13,7 @@ SRCDIRS = $(addprefix $(SRC_DIR)/, $(SUBDIRS))
 SRCS = $(notdir $(foreach dir, $(SRCDIRS), $(wildcard $(dir)/*.c))) $(notdir $(SRC_DIR)/main.c)
 OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(SRCS))
 
-LIBFLAGS = -lreadline -L $(LIBFT) -lft
+LIBFLAGS = -L /opt/homebrew/Cellar/readline/8.2.13/lib/ -lreadline -L $(LIBFT) -lft
 CFLAGS = -g3 # -Wall -Wextra -Werror -g3
 
 GREEN = \x1b[32;1m

@@ -1,22 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   tokenization.c                                     :+:      :+:    :+:   */
+/*   __env.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/27 22:08:50 by healeksa          #+#    #+#             */
-/*   Updated: 2024/09/27 22:14:07 by healeksa         ###   ########.fr       */
+/*   Created: 2024/10/05 21:36:25 by healeksa          #+#    #+#             */
+/*   Updated: 2024/10/05 21:55:41 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-char	*tokenization(char *line)
+void	__env(char **envp)
 {
-	char	*_line;
+	int	i;
+	int	j;
 
-	_line = ft_strtrim(line, " \t");
-	ft_free((void *)&line);
-	return (_line);
+	i = 0;
+	while (envp[i])
+	{
+		j = 0;
+		while (envp[i][j])
+		{
+			printf("%c", envp[i][j]);
+			j++;
+		}
+		printf("\n");
+		i++;
+	}
 }

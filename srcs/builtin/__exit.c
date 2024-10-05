@@ -1,18 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init.c                                             :+:      :+:    :+:   */
+/*   __exit.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: healeksa <healeksa@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/09/29 13:51:59 by healeksa          #+#    #+#             */
-/*   Updated: 2024/09/29 13:52:41 by healeksa         ###   ########.fr       */
+/*   Created: 2024/10/05 21:53:24 by healeksa          #+#    #+#             */
+/*   Updated: 2024/10/06 00:11:10 by healeksa         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "minishell.h"
 
-void	shell_init(t_shell *minishell)
+void	__exit(int status)
 {
-	minishell->cmd_line = NULL;
+	exit(status);
 }
